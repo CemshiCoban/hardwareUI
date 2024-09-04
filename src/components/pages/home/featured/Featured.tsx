@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import FeaturedGauge from './FeaturedGauge';
-import { featuredData } from './featuredData';
 
 const FeaturedContainer = styled.div`
   width: 100%;
@@ -30,18 +29,25 @@ const FeaturedContentContainer = styled.div`
   width: 100%;
 `;
 
+interface FeaturedProps {
+  data: { title: string; usage: number }[];
+}
 
-
-
-const Featured: React.FC = () => {
+const Featured: React.FC<FeaturedProps> = ({ data }) => {
   return (
     <FeaturedContainer>
-      {featuredData && featuredData.map((item,index) =>(
-        <FeaturedItem key = {index}>
+      {data.map((item, index) => (
+        <FeaturedItem key={index}>
           <FeaturedTitle>{item.title}</FeaturedTitle>
-        <FeaturedContentContainer>
-         <FeaturedGauge value= {item.usage} />
-        </FeaturedContentContainer>
+          <FeaturedContentContainer>
+            {typeof item.usage === 'object' ? (
+              <>
+                {/* Handle the case for network data here */}
+              </>
+            ) : (
+              <FeaturedGauge value={item.usage} />
+            )}
+          </FeaturedContentContainer>
         </FeaturedItem>
       ))}
     </FeaturedContainer>

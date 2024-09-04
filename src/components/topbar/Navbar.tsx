@@ -68,7 +68,7 @@ const Navbar = () => {
     <NavbarContainer>
         <NavbarWrapper>
             <TopLeft>
-                <Logo>Karımı Çok Seviyom.</Logo>
+                <Logo>Knagal Mnagal</Logo>
             </TopLeft>
             <TopRight>
                 <IconContainer> 

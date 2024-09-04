@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import SidebarMenu from './SidebarMenu';
 import SidebarListItem from './SidebarListItem';
 import { NotificationsNone, Language, Settings } from '@mui/icons-material';
+import HomeIcon from '@mui/icons-material/Home';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const SidebarContainer = styled.div`
   flex: 1;
@@ -23,9 +25,9 @@ const Sidebar: React.FC = () => {
       <SidebarWrapper>
 
         <SidebarMenu title="Dashboard">
-          <SidebarListItem icon={<NotificationsNone />}>Home</SidebarListItem>
-          <SidebarListItem icon={<Language />}>Analytics</SidebarListItem>
-          <SidebarListItem icon={<Settings />}>Sales</SidebarListItem>
+          <SidebarListItem icon={<HomeIcon />}>Home</SidebarListItem>
+          <SidebarListItem icon={<CalendarMonthIcon />}>Search by Date</SidebarListItem>
+          <SidebarListItem icon={<Settings />}>Settings</SidebarListItem>
         </SidebarMenu>
 
         <SidebarMenu title="Quick Menu">
