@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Featured from './featured/Featured';
 import Chart from './Chart';
 import CoreUsage from './Cores';
-import NetworkUsage from './NetworkUsage';
+import NetworkUsage from './network/NetworkUsage';
 import { chartData } from './chartData';
 import { HomeData } from './HomeData';
 

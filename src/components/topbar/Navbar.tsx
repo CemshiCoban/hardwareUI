@@ -1,93 +1,83 @@
-import {NotificationsNone, Language,  Settings} from '@mui/icons-material'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import { Settings } from '@mui/icons-material';
+import styled from 'styled-components';
+import Modal from './Modal'; // Import the Modal component
 
-const NavbarContainer = styled.div `
-    width: 100%;
-    height: 50px;
-    background-color: '#fff';
-    position: sticky;
-    top: 0;
-    z-index: 999;
+const NavbarContainer = styled.div`
+  width: 100%;
+  height: 50px;
+  background-color: '#fff';
+  position: sticky;
+  top: 0;
+  z-index: 999;
+`;
 
-` 
+const NavbarWrapper = styled.div`
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content: space-between;
+`;
 
-const NavbarWrapper = styled.div `
-    height: 100%;
-    padding: 0px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-` 
+const Logo = styled.span`
+  font-weight: bold;
+  font-size: 30px;
+  color: maroon;
+  cursor: pointer;
+`;
 
-const Logo = styled.span `
-    font-weight: bold;
-    font-size: 30px;
-    color: maroon;
-    cursor: pointer;
-` 
+const TopLeft = styled.div``;
 
-const TopLeft = styled.div `` 
+const TopRight = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-const TopRight = styled.div `
-    display: flex;
-    align-items: center;
-` 
+const IconContainer = styled.div`
+  position: relative;
+  cursor: pointer;
+  margin-right: 20px;
+  color: '#555';
+`;
 
-const IconContainer = styled.div `
-    position: relative;
-    cursor: pointer;
-    margin-right: 20px;
-    color: '#555';
-` 
+const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
 
-const IconBadge = styled.span `
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: -5px;
-    right: 0px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-` 
+const Navbar: React.FC = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
 
-const Avatar = styled.img `
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-` 
+  // Function to toggle modal visibility
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
 
-const Navbar = () => {
-    const rndNmr = () : number => Math.floor(Math.random() * 99) + 1;
+  const rndNmr = (): number => Math.floor(Math.random() * 99) + 1;
 
-   return(
+  return (
     <NavbarContainer>
-        <NavbarWrapper>
-            <TopLeft>
-                <Logo>Knagal Mnagal</Logo>
-            </TopLeft>
-            <TopRight>
-                <IconContainer> 
-                    <NotificationsNone/>
-                    <IconBadge>5</IconBadge>
-                </IconContainer>
-                <IconContainer>
-                    <Language/>
-                    <IconBadge>3</IconBadge>
-                </IconContainer>
-                <IconContainer>
-                    <Settings/>
-                    <IconBadge>0</IconBadge>
-                </IconContainer>
-                <Avatar src={`https://randomuser.me/api/portraits/women/${rndNmr()}.jpg`} alt ='avatar' />
-            </TopRight>
-        </NavbarWrapper>
-    </NavbarContainer>
-   )
-}
+      <NavbarWrapper>
+        <TopLeft>
+          <Logo>Knagal Mnagal</Logo>
+        </TopLeft>
+        <TopRight>
+          <IconContainer onClick={toggleModal}>
+            <Settings />
+          </IconContainer>
+          <Avatar
+            src={`https://randomuser.me/api/portraits/women/${rndNmr()}.jpg`}
+            alt="avatar"
+          />
+        </TopRight>
+      </NavbarWrapper>
 
-export default Navbar
+      {isModalOpen && <Modal toggleModal={toggleModal} />}
+    </NavbarContainer>
+  );
+};
+
+export default Navbar;

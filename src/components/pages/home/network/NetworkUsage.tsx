@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FeaturedGauge from './featured/FeaturedGauge';
+import NetworkGauge from './NetworkGauge';
 
 const NetworkContainer = styled.div`
   flex: 4;
@@ -47,11 +47,11 @@ const NetworkUsage: React.FC<NetworkUsageProps> = ({ inbound, outbound }) => {
       <GaugeContainer>
         <GaugeItem>
           <GaugeLabel>Incoming</GaugeLabel>
-          <FeaturedGauge value={inbound} />
+          <NetworkGauge value={inbound} />
         </GaugeItem>
         <GaugeItem>
           <GaugeLabel>Outgoing</GaugeLabel>
-          <FeaturedGauge value={outbound} />
+          <NetworkGauge value={outbound} />
         </GaugeItem>
       </GaugeContainer>
     </NetworkContainer>

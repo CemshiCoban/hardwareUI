@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SidebarMenu from './SidebarMenu';
 import SidebarListItem from './SidebarListItem';
-import { NotificationsNone, Language, Settings } from '@mui/icons-material';
+import { Settings } from '@mui/icons-material';
 import HomeIcon from '@mui/icons-material/Home';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
@@ -28,12 +28,6 @@ const Sidebar: React.FC = () => {
           <SidebarListItem icon={<HomeIcon />}>Home</SidebarListItem>
           <SidebarListItem icon={<CalendarMonthIcon />}>Search by Date</SidebarListItem>
           <SidebarListItem icon={<Settings />}>Settings</SidebarListItem>
-        </SidebarMenu>
-
-        <SidebarMenu title="Quick Menu">
-          <SidebarListItem icon={<NotificationsNone />}>Users</SidebarListItem>
-          <SidebarListItem icon={<Language />}>Products</SidebarListItem>
-          <SidebarListItem icon={<Settings />}>Reports</SidebarListItem>
         </SidebarMenu>
         {/* Add more SidebarMenu components as needed */}
       </SidebarWrapper>
