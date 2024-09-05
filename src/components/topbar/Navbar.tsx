@@ -51,25 +51,24 @@ const Avatar = styled.img`
 const Navbar: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
-  // Function to toggle modal visibility
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
 
-  const rndNmr = (): number => Math.floor(Math.random() * 99) + 1;
+  const rndNmr = (): number => Math.floor(Math.random() * 7) + 1;
 
   return (
     <NavbarContainer>
       <NavbarWrapper>
         <TopLeft>
-          <Logo>Knagal Mnagal</Logo>
+          <Logo>Hardware Tracker</Logo>
         </TopLeft>
         <TopRight>
           <IconContainer onClick={toggleModal}>
             <Settings />
           </IconContainer>
           <Avatar
-            src={`https://randomuser.me/api/portraits/women/${rndNmr()}.jpg`}
+            src={`https://randomuser.me/api/portraits/lego/${rndNmr()}.jpg`}
             alt="avatar"
           />
         </TopRight>

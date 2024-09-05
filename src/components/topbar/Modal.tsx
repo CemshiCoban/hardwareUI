@@ -67,6 +67,9 @@ const Modal: React.FC<ModalProps> = ({ toggleModal }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    maxCpu: '',
+    maxRam: '',
+    maxDisk: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,6 +107,30 @@ const Modal: React.FC<ModalProps> = ({ toggleModal }) => {
             name="email"
             placeholder="Your Email"
             value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <FormInput
+            type="number"
+            name="maxCpu"
+            placeholder="Max CPU (%)"
+            value={formData.maxCpu}
+            onChange={handleChange}
+            required
+          />
+          <FormInput
+            type="number"
+            name="maxRam"
+            placeholder="Max RAM (%)"
+            value={formData.maxRam}
+            onChange={handleChange}
+            required
+          />
+          <FormInput
+            type="number"
+            name="maxDisk"
+            placeholder="Max Disk (%)"
+            value={formData.maxDisk}
             onChange={handleChange}
             required
           />
